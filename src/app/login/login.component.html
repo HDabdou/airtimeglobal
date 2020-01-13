@@ -1,0 +1,28 @@
+<ion-content color="primary" padding>
+  <form #form="ngForm"  style="box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);margin-top: 10rem !important;background-color: white;">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center style="background-color: white !important;color: black;">
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h2 style="color: black !important;font-size: 2rem;">Login</h2>
+          </div>
+          <div ion-padding style="background-color: white !important;">
+            <ion-item *ngIf="etape == 0" style="background-color: white !important;" >
+              <ion-input name="email" style="background-color: white !important;color: black !important;" [(ngModel)]="loginU"  type="email" placeholder="Entrer votre login" ngModel required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="etape == 0" style="background-color: white !important;">
+              <ion-input style="background-color: white !important;color: black !important;" name="password" [(ngModel)]="password" type="password" placeholder="Password" ngModel required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="etape == 1" style="background-color: white !important;">
+              <ion-input style="background-color: white !important;color: black !important;" name="smscode" [(ngModel)]="smscode" type="password" placeholder="SMS code" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div ion-padding>
+            <ion-button *ngIf="etape == 0" size="large" (click)="loginstepone()" color="success" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
+            <ion-button *ngIf="etape == 1" size="large" (click)="loginsteptwo()" color="success" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
